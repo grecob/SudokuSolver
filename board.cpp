@@ -21,6 +21,38 @@ Board::Board(std::vector<std::vector<int>> paramBoard)
     this->data = paramBoard;
 }
 
+
+bool Board::CheckRow(int row, int val)
+{
+    for(int i = 0; i < 9; ++i)
+    {
+        if(data[row][i] == val)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool Board::CheckCol(int col, int val)
+{
+    for(int i = 0; i < 9; ++i)
+    {
+        if(data[i][col] == val)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool IsValid(int row, int col, int val)
+{
+    // check row, col, subboard
+    return false;
+}
+
+
 void Board::SetData(int row, int col, int val)
 {
     if(row < 9 && row >=0 && col < 9 && col >= 0)
@@ -31,6 +63,28 @@ void Board::SetData(int row, int col, int val)
         }
     }
     return;
+}
+
+void Board::Print()
+{
+    for(int i = 0; i < 9; ++i)
+    {
+        if(i % 3 == 0)
+        {
+            std::cout << "\n+-------+-------+-------+";
+        }
+        std::cout << '\n';
+        for(int j = 0; j < 9; ++j)
+        {
+            if(j % 3 == 0)
+            {
+                std::cout << "| ";
+            }
+            std::cout << data[i][j]<< " ";
+        }
+        std::cout << "|";
+    }
+    std::cout << "\n+-------+-------+-------+\n";
 }
 
 std::vector<std::vector<int>> Board::GetBoard()

@@ -36,6 +36,15 @@ TEST_CASE("Board")
     // test out of bounds assignment
     paramBoard.SetData(2,2, -9);
     CHECK(paramBoard.GetData(2,2) == 0);
+
+    // test CheckRow
+    CHECK(defaultBoard.CheckRow(0,5) == false);
+    CHECK(defaultBoard.CheckRow(0, 2) == true);
+    // test CheckColumn
+    CHECK(defaultBoard.CheckCol(0,8) == false);
+    CHECK(defaultBoard.CheckCol(0,1) == true);
+
+    defaultBoard.Print();
     
     
 
