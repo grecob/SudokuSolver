@@ -1,16 +1,16 @@
 #ifndef BOARD_HPP
 #define BOARD_HPP
+#include <vector>
 
 class Board
 {
     private:
-        int x;
-        int y;
+        std::vector<std::vector<int>> data;
     public:
         Board();
-        Board(int x,int y);
-        int GetXSize();
-        int GetYSize();
+        Board(std::vector<std::vector<int>>);
+        std::vector<std::vector<int>> GetBoard();
+        int GetData(int row,int col);
 };
 
 #endif
