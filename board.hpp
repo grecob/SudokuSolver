@@ -9,8 +9,9 @@ class Board
     public:
         Board();
         Board(std::vector<std::vector<int>>);
+        void SetData(int row, int col, int val);
         std::vector<std::vector<int>> GetBoard();
-        int GetData(int row,int col);
+        int GetData(int row, int col);
 };
 
 #endif
