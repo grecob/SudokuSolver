@@ -2,6 +2,7 @@
 #include <iostream>
 
 const int BOARD_SIZE = 9;
+const int SUB_BOARD_SIZE = 3;
 Board::Board()
 {
     data =
@@ -48,24 +49,35 @@ bool Board::CheckCol(int col, int val)
     return true;
 }
 
-bool CheckSubBoard(int row, int col, int val)
+bool Board::CheckSubBoard(int row, int col, int val)
 {
+    for(int i = 0; i< SUB_BOARD_SIZE; ++i)
+    {
+        for(int j = 0; j < SUB_BOARD_SIZE; ++j)
+        {
+            // check every value in the sub board given the row and col
+            if(data[i+(row - row % SUB_BOARD_SIZE)][j+(col - col % SUB_BOARD_SIZE)] == val)
+            {
+                return false;
+            }
+        }
+    }
     return true;
 }
 
 
-bool IsValid(int row, int col, int val)
+bool Board::IsValid(int row, int col, int val)
 {
     // check row, col, subboard
-    return false;
+    return CheckRow(row,val) && CheckCol(col,val) && CheckSubBoard(row,col,val);
 }
 
 
 void Board::SetData(int row, int col, int val)
 {
-    if(row < 9 && row >=0 && col < 9 && col >= 0)
+    if(row < BOARD_SIZE && row >=0 && col < BOARD_SIZE && col >= 0)
     {
-        if(val < 9 && val >= 0)
+        if(val < BOARD_SIZE && val >= 0)
         {
             this->data[row][col] = val;
         }
