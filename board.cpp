@@ -1,5 +1,7 @@
 #include "board.hpp"
 #include <iostream>
+
+const int BOARD_SIZE = 9;
 Board::Board()
 {
     data =
@@ -24,7 +26,7 @@ Board::Board(std::vector<std::vector<int>> paramBoard)
 
 bool Board::CheckRow(int row, int val)
 {
-    for(int i = 0; i < 9; ++i)
+    for(int i = 0; i < BOARD_SIZE; ++i)
     {
         if(data[row][i] == val)
         {
@@ -36,7 +38,7 @@ bool Board::CheckRow(int row, int val)
 
 bool Board::CheckCol(int col, int val)
 {
-    for(int i = 0; i < 9; ++i)
+    for(int i = 0; i < BOARD_SIZE; ++i)
     {
         if(data[i][col] == val)
         {
@@ -45,6 +47,12 @@ bool Board::CheckCol(int col, int val)
     }
     return true;
 }
+
+bool CheckSubBoard(int row, int col, int val)
+{
+    return true;
+}
+
 
 bool IsValid(int row, int col, int val)
 {
@@ -67,14 +75,14 @@ void Board::SetData(int row, int col, int val)
 
 void Board::Print()
 {
-    for(int i = 0; i < 9; ++i)
+    for(int i = 0; i < BOARD_SIZE; ++i)
     {
         if(i % 3 == 0)
         {
             std::cout << "\n+-------+-------+-------+";
         }
         std::cout << '\n';
-        for(int j = 0; j < 9; ++j)
+        for(int j = 0; j < BOARD_SIZE; ++j)
         {
             if(j % 3 == 0)
             {
