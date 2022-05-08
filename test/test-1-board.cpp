@@ -87,5 +87,7 @@ TEST_CASE("Board")
         CHECK(defaultBoard.IsValid(6,4,3) == true);
     }
     defaultBoard.Print();
+    CHECK(defaultBoard.Solve() == true);
+    defaultBoard.Print();
     
 }

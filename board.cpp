@@ -107,6 +107,39 @@ void Board::Print()
     std::cout << "\n+-------+-------+-------+\n";
 }
 
+bool Board::Solve(int row,int col)
+{
+    // base case
+    if(row == 9)
+    {
+        return true;
+    }
+    else if(col  == 9)
+    {
+        return Solve(row + 1, 0);
+    }
+    else if(data[row][col] != 0)
+    {
+        return Solve(row, col + 1);
+    }
+    else
+    {
+        for(int i = 1; i < 10; ++i)
+        {
+            if(IsValid(row,col,i))
+            {
+                data[row][col] = i;
+                if(Solve(row, col + 1))
+                {
+                    return true;
+                }
+                data[row][col] = 0;
+            }
+        }
+        return false;
+    }
+}
+
 std::vector<std::vector<int>> Board::GetBoard()
 {
     return data;

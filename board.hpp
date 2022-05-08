@@ -10,13 +10,14 @@ class Board
         // constructors
         Board();
         Board(std::vector<std::vector<int>>);
-        
+
         // utility / helpers
         bool CheckRow(int row, int val);
         bool CheckCol(int col, int val);
         bool CheckSubBoard(int row, int col, int val);
         bool IsValid(int row, int col, int val);
         void Print();
+        bool Solve(int row = 0, int col = 0);
 
         // setters
         void SetData(int row, int col, int val);
