@@ -142,11 +142,13 @@ bool Board::Solve(int row,int col)
 
 std::vector<std::vector<int>> Board::GetBoard()
 {
+    // returns entire board
     return data;
 }
 
 int Board::GetData(int row, int col)
 {
+    // returns value at board index
     return data[row][col];
 }
 
